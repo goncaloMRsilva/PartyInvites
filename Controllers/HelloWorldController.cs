@@ -22,7 +22,7 @@ namespace PartyInvites.Controllers
             {
                 ViewBag.Mesasge = "Good Afternoon";
             }
-            else
+            else 
             {
                 ViewBag.Mesasge = "Good Night";
             }
