@@ -6,5 +6,10 @@
     <h1 class="display-4">Welcome, we are going to have a party</h1>
     <p>you can register here
     <a asp-action="Register">here</a>.</p>
-    <p></p>
+    
+    @if(Repository.Responses.Count() > 0){
+    <p>
+        <a asp-action="GuestList">See who is comming to the party</a>
+    </p>
+    }
 </div>
