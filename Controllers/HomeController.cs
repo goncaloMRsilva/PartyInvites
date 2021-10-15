@@ -41,7 +41,7 @@ namespace PartyInvites.Controllers
             Repository.AddResponse(response);
 
             //DEVOLVE a vista obrigado
-            return View("ThankYou");
+            return View("ThankYou", response);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
