@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using PartyInvites.Models;
 
-namespace WebApplication1.Controllers
+namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
     {
@@ -28,9 +28,17 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(GuestResponse response)
+        {
+            //TODO: Guardar os dados do utilizador
+            return View("ThankYou");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
