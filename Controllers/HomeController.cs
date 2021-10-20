@@ -37,16 +37,27 @@ namespace PartyInvites.Controllers
         [HttpPost]
         public IActionResult Register(GuestResponse response)
         {
-            //Guardar os dados da resposta do utilizador
-            Repository.AddResponse(response);
-
-            //DEVOLVE a vista obrigado
-            return View("ThankYou", response);
+            if (ModelState.IsValid)
+            {
+                //Guardar os dados da resposta do utilizador
+                Repository.AddResponse(response);
+                //DEVOLVE a vista obrigado
+                return View("ThankYou", response);
+            } else
+            {
+                return View();
+            }
+            
         }
 
         public IActionResult GuestList()
         {
             return View(Repository.Responses);
+        }
+
+        public IActionResult PeopleComingParty()
+        {
+            return View(Repository.Responses.Where(g => g.WillAttend == true));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

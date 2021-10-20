@@ -4,11 +4,14 @@
 }
 
 <h1>Guest List</h1>
-
+<div class="mb-3">
+    <a asp-action="PeopleComingParty">People coming to the party</a>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>Name</th>
+            <th>Will attend</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +19,17 @@
         {
             <tr>
                 <td>@guest.Name</td>
+                <td>
+                    @if(guest.WillAttend == null)
+                {
+                    @: Don´t know
+                }else if(guest.WillAttend == true){
+                    @: Yes
+                } else
+                {
+                    @: No
+                }
+                </td>
             </tr>
         }
     </tbody>
